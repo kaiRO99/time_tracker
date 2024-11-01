@@ -131,7 +131,7 @@ def add_name(name, start_status):
     #set the status of buttons
     start_status.set("enabled")
 
-def home_window():
+def main():
     """
     function to build the app
     """
@@ -248,7 +248,7 @@ def home_window():
     save_button = ttk.Button(stopwatch_frame,
                              text = 'Save',
                              command = lambda: [stopwatch.save(connection, start_status, stop_status, reset_save_status,add_status),
-                                                entry_input.set(""), refresh_table()],
+                                                entry_input.set(""), refresh_table(),clear_activity_label()],
                              cursor='hand2',
                              state = reset_save_status.get())
 
@@ -320,14 +320,14 @@ def home_window():
     # #* prints db
     # for row in cursor.execute("select * from activity"):
     #     print(row)
-
+    window.mainloop()
     #* commit and close db
     connection.commit()
     connection.close()
     return window
 
 if __name__ == '__main__':
-    window = home_window()
-    window.mainloop()
+    main()
+    
 
 #54 min
