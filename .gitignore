@@ -1,0 +1,4 @@
+__pycache__
+.conda
+test_project.py
+tracker.db
